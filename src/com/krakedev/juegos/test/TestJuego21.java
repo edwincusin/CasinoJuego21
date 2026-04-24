@@ -16,14 +16,15 @@ public class TestJuego21 {
 		partida1.inicializar();
 		partida1.repartirRonda();
 		partida1.repartirRonda();
-		
+
 		for(Jugador jugador:partida1.getJugadores()) {
 			jugador.imprimir();
 			
 		}
 		System.out.println();
 		partida1.getDealer().imprimirNaipe();
-	
+
+		
 	}
 
 }

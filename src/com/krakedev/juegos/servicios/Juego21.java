@@ -90,6 +90,7 @@ public class Juego21 {
 	
 	//11. METODO JUGAR 
 	public ArrayList<Jugador> jugar(){
+		encerarjugadores();
 		ArrayList<Jugador> ganadores=new ArrayList<Jugador>();
 		for (int i=0;i<3;i++) {
 			repartirRonda();
@@ -101,6 +102,13 @@ public class Juego21 {
 		return ganadores;
 	}
 	
+	//ENCERAR JUGADORES
+	public void encerarjugadores() {
+		for(Jugador jugador : jugadores) {
+			jugador.setPuntajeCartas(0);
+			jugador.setCartas(new ArrayList<Carta>());
+		}
+	}
 	
 	
 	

@@ -58,11 +58,73 @@ public class Juego21 {
 		jugador.recibirCarta(carta);
 	}
 	
+	//REPARTIR RONDA
 	public void repartirRonda() {
 		for(Jugador jugador : jugadores) {
 			repartirCarta(jugador);
 		}
+		calcularTotal();
 	}
+	// METODO CALCULAR TOTAL
+	public void calcularTotal() {
+		for(Jugador jugador: jugadores) {
+			int totalCartas=0;;
+			for(Carta carta: jugador.getCartas()) {
+				totalCartas+=carta.getValorJuego();
+			}
+			jugador.setPuntajeCartas(totalCartas);
+		}
+	}
+	//10. METODO VALIDAR GANADOR
+	public ArrayList<Jugador> validarGanadores(){
+		ArrayList<Jugador> ganadores=new ArrayList<Jugador>();
+		
+		for(Jugador jugador: jugadores) {
+			
+			if(jugador.getPuntajeCartas()==21) {
+				ganadores.add(jugador);
+			}
+		}
+		return ganadores;
+	}
+	
+	//11. METODO JUGAR 
+	public ArrayList<Jugador> jugar(){
+		ArrayList<Jugador> ganadores=new ArrayList<Jugador>();
+		for (int i=0;i<3;i++) {
+			repartirRonda();
+			ganadores=validarGanadores();
+			if(ganadores.size()>0) {
+				break;
+			}
+		}
+		return ganadores;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }
